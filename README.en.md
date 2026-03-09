@@ -25,7 +25,7 @@ Typical workloads include:
 - **Human Runtime**: the critical path stays human-driven and directly accountable
 - **Agent Augmentation**: the operator can call `OpenClaw` or other agents on demand
 - **Deadline-Aware Scheduling**: prioritization shifts with urgency, interruptions, and delivery windows
-- **Flexible Pricing**: strictly above `¥0`, varying by lab, familiarity, and snack policy
+- **Typical Pricing**: commonly `¥400 / month`, with variation by lab, familiarity, and snack policy
 
 ## Skills
 
@@ -121,7 +121,7 @@ Typical workloads include:
 | Task entry | WeChat-first | Multi-channel messaging + local control plane |
 | Control plane | Task routing, human judgment, and strategic disappearance | Local-first Gateway |
 | Extensibility | Human tool use, agent fallback, and last-minute overtime | Tools, skills, routing, and multi-agent workflows |
-| Cost structure | Strictly above `¥0`, varying by lab, familiarity, and late-night snack policy | Self-hosted software plus model / deployment costs |
+| Cost structure | Commonly `¥400 / month`, still varying by lab, familiarity, and late-night snack policy | Self-hosted software plus model / deployment costs |
 | Failure mode | Seen-but-no-reply, advisor interruptions, deadline compression | Configuration, permission, runtime, and security-policy issues |
 | Best fit | High-pressure tasks that need human fallback | Long-running personal AI assistant workflows |
 
@@ -129,8 +129,8 @@ Typical workloads include:
 
 | Item | Description |
 | --- | --- |
-| Standard Plan | `> ¥0 / month` |
-| Pricing Basis | Varies by lab, funding mood, relationship quality, and snack expectations |
+| Standard Plan | Commonly `¥400 / month` |
+| Pricing Basis | Moves up or down depending on lab, funding mood, relationship quality, and snack expectations |
 | Token Policy | Theoretically unmetered, practically limited by how long a human can keep going |
 | Response SLA | Fast on a good day, “I saw it” on a bad one |
 | Escalation Policy | Brings in `OpenClaw` or other agents when the human layer is cooked |
