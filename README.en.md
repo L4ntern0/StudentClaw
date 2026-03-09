@@ -37,6 +37,21 @@ Typical workloads include:
 | `Chat-to-Task` | Converts messy chat context into a concrete task list and deliverables. | Fragmented requirements, scattered context | Optional |
 | `First-Draft First` | Produces a usable first pass, then tightens it through feedback loops. | Drafting, outlining, explanatory writing | Supported |
 | `Human Saturation Fallback` | Switches to external agents when the human execution layer is overloaded. | Bulk rewriting, structured generation, repetitive work | Default on |
+| `Plagiarism Check` | Detects paper similarity rate and provides rewrite suggestions. | Pre-submission anxiety, advisor requests | Supported |
+| `Advisor Pie Detection` | Analyzes advisor promises and identifies hype-to-reality ratio. | Lab meetings, advisor commitments | Optional |
+| `Group Meeting Prep` | Assists in preparing presentation slides and talking points. | Weekly meetings, work reports | Supported |
+| `Literature Review` | Automatically organizes paper key points into review framework. | Proposal writing, thesis writing | Supported |
+| `Reviewer Response` | Organizes reviewer comments and prioritizes response strategy. | Paper revisions, resubmissions | Supported |
+| `Data Manipulation` | Uses reasonable statistical methods to handle outlier data. | Data analysis, insignificant results | Not recommended |
+| `Advisor Absence` | Detects when advisor is on business/travel, time to slack off. | Lab daily life, paper deadlines | Default on |
+| `Horizontal Funding` | Helps advisor expense various weird receipts. | Project funds,报销流程 | Supported |
+| `Grab Horizontal` | Identifies advisor's horizontal projects and grabs them quickly. | Horizontal projects, new projects | Requires `Professor API` |
+| `Lab Social` | Likes, flatters, and sends holiday wishes in the lab group chat. | Maintaining advisor relations, daily survival | Optional |
+| `Graduation Countdown` | Counts down days until graduation or延期. | Thesis anxiety, graduation season | Always running |
+| `Mental State` | Monitors user's mental state in real-time, alerts when needed. | Graduate student mental health, breakdown edge | Default on |
+| `Acting Training` | Practices looking busy in front of advisor. | Before group meetings, daily reports | Supported |
+| `Fake Attendance` | Simulates lab attendance records for spot checks. | Advisor spot checks, not at desk | Use with caution |
+| `Academic Seduction` | Helps create "chance encounters" with advisor. | Lab survival, advisor relations | Requires `Wife of Advisor API` |
 
 ## Requirements
 
