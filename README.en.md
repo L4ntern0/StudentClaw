@@ -241,15 +241,34 @@ The point is to expose how uncomfortable that logic already is, not endorse it.
 
 ### Unreleased
 
+- cleaned up the changelog format
+- backfilled release notes for `v0.1.1` and `v0.1.2`
+
+### `v0.1.2`
+
+**Added**
 - added a `Deployment` section with `Dorm-Room Single-Node Deluxe Deployment`
 - added a `StudentAgent Switching & Context Carryover` section
+
+**Changed**
+- unified `Session / desk` terminology under `StudentAgent`
+- renamed execution-path terms to `StudentAgent Runtime` and `StudentAgent Scheduler`
+- aligned product terminology and architecture labels across Chinese and English READMEs
+
+### `v0.1.1`
+
+**Added**
 - added a `When Local Run Fails` section
 - added a `Troubleshooting` section
+- added a `Changelog` section
+
+**Changed**
 - documented `Advisor API` / `Professor API` as hard prerequisites
 - normalized pricing language to “commonly `¥400 / month`, with variation”
 
 ### `v0.1.0`
 
+**Added**
 - initial public release
 - shipped a Chinese-first homepage and a separate English README
 - included an ASCII architecture diagram, `OpenClaw` comparison, skills section, and base FAQ

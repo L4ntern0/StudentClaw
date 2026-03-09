@@ -241,15 +241,34 @@
 
 ### Unreleased
 
+- 整理版本记录格式
+- 补齐 `v0.1.1` 与 `v0.1.2` 的发布说明
+
+### `v0.1.2`
+
+**Added**
 - 增加 `部署` 小节，补充 `宿舍单机豪华部署`
 - 增加 `StudentAgent 切换与上下文继承` 说明
+
+**Changed**
+- 将 `Session / 工位` 相关命名统一为 `StudentAgent`
+- 将执行链路命名统一为 `StudentAgent Runtime` 与 `StudentAgent Scheduler`
+- 同步调整中英文 README 的产品术语与架构图标签
+
+### `v0.1.1`
+
+**Added**
 - 增加 `本地运行失败` 小节
 - 增加 `故障排查` 小节
+- 增加 `Changelog` 小节
+
+**Changed**
 - 补充 `硕导 API` / `博导 API` 前置权限说明
 - 将成本口径统一为“默认普遍 `¥400 / 月`，但会浮动”
 
 ### `v0.1.0`
 
+**Added**
 - 初始公开版本发布
 - 提供中文首页与英文 README
 - 包含 ASCII 架构图、`OpenClaw` 对比、技能区和基础 FAQ
