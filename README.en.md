@@ -60,9 +60,49 @@ Typical workloads include:
 1. Make sure you have at least one working privilege: `Advisor API` or `Professor API`  
 2. Send the task, context, and delivery requirements through WeChat  
 3. Let the routing layer decide priority and execution path  
-4. `Student Runtime` handles execution, follow-through, and delivery  
+4. `StudentAgent Runtime` handles execution, follow-through, and delivery  
 5. Bring in external agents when automation becomes useful  
 6. Return results and iterate until the task is closed
+
+## Deployment
+
+`StudentClaw` currently supports one deployment mode that best matches its overall product character:
+
+### `Dorm-Room Single-Node Deluxe Deployment`
+
+Default deployment shape:  
+one struggling graduate-student laptop, one WeChat window, and a few half-awake `StudentAgent` nodes taking turns.
+
+Its advantages are obvious:
+
+- fast to start, effectively boot-and-serve
+- physically close to the operator, so follow-up pressure works immediately
+- can escalate to `OpenClaw` or other agents at any time
+
+Its costs are also obvious:
+
+- the fan noise often arrives before the result
+- neither memory nor morale truly supports high concurrency
+- the moment an advisor interrupts, the whole cluster collapses into single-threaded mode
+
+## StudentAgent Switching & Context Carryover
+
+`StudentClaw` does not guarantee complete automatic context carryover across `StudentAgent` nodes by default.  
+In plain language: what you said in chat A may not be fully inherited in chat B.
+
+The most common switching problems in the current version are:
+
+- one task gets split across multiple `StudentAgent` nodes and nobody knows which thread is the latest
+- new requirements were added in WeChat, but an older `StudentAgent` is still running the previous version
+- urgency and emotional tone from `StudentAgent` A are not recognized by `StudentAgent` B
+- after enough switching, the system enters “I remember you said this, but not which time” mode
+
+Recommended practice:
+
+1. keep one main `StudentAgent` node for one deliverable whenever possible  
+2. whenever switching `StudentAgent` nodes, restate the current goal, deadline, and blockers  
+3. if the task has already drifted, run the equivalent of `Chat-to-Task` before continuing  
+4. do not assume `StudentClaw` can synchronize every context by sheer willpower
 
 ## When Local Run Fails
 
@@ -93,17 +133,17 @@ In short, local failure is usually an environment problem, not an installation-t
 ```text
                            +--------------------------------+
                            | Advisor Interrupts / Deadlines |
-                           +---------------+----------------+
+                           +----------------+---------------+
                                            |
                                            v
 +-----------+     +----------------+     +----------------+     +----------------+
-| Requester | --> | WeChat Gateway | --> |  Task Router   | --> | Priority Queue |
+| Requester | --> | WeChat Gateway | --> |  Task Router   | --> | StudentAgent Scheduler |
 +-----------+     +----------------+     +----------------+     +--------+-------+
                                                                          |
                                                                          v
-                                                              +-------------------+
-                                                              |  Student Runtime  |
-                                                              +----+---------+----+
+                                                              +----------------------+
+                                                              | StudentAgent Runtime |
+                                                              +-----+----------+-----+
                                                                    |         |
                                       +----------------------------+         +---------------------------+
                                       |                                                          |
@@ -114,13 +154,13 @@ In short, local failure is usually an environment problem, not an installation-t
                          +-------------+-------------+                                         |
                                        |                                                       v
                                        v                                           +------------------------+
-                         +---------------------------+                             | OpenClaw / Other Agents|
+                         +---------------------------+                             | OpenClaw / Other Agents |
                          |      Result Delivery      |                             +-----------+------------+
                          +---------------------------+                                         |
                                                                                               v
-                                                                                   +-------------------+
-                                                                                   |  Student Runtime  |
-                                                                                   +-------------------+
+                                                                                   +----------------------+
+                                                                                   | StudentAgent Runtime |
+                                                                                   +----------------------+
 ```
 
 ### Architecture Notes
@@ -129,8 +169,8 @@ In short, local failure is usually an environment problem, not an installation-t
 | --- | --- |
 | WeChat Gateway | Receives requests, context, and follow-up instructions |
 | Task Router | Classifies work, assigns priority, and selects execution path |
-| Priority Queue | Reorders work based on deadlines, urgency, and interruptions |
-| Student Runtime | Human execution layer responsible for judgment, handling, and delivery |
+| StudentAgent Scheduler | Reorders work based on deadlines, urgency, and multi-`StudentAgent` switching |
+| StudentAgent Runtime | Human execution layer responsible for judgment, handling, and delivery |
 | Agent Adapter | External capability layer for `OpenClaw` or other agents |
 | Result Delivery | Sends results back, handles revision requests, and closes the loop |
 
@@ -201,6 +241,8 @@ The point is to expose how uncomfortable that logic already is, not endorse it.
 
 ### Unreleased
 
+- added a `Deployment` section with `Dorm-Room Single-Node Deluxe Deployment`
+- added a `StudentAgent Switching & Context Carryover` section
 - added a `When Local Run Fails` section
 - added a `Troubleshooting` section
 - documented `Advisor API` / `Professor API` as hard prerequisites
